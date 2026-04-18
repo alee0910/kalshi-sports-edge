@@ -1,0 +1,68 @@
+{
+  "refreshed_at": "2026-04-18T23:08:12+00:00",
+  "window_days": 30,
+  "warming_up": true,
+  "n_scans_total": 14,
+  "n_scans_settled": 0,
+  "per_strategy": {
+    "S02": {
+      "n_scans": 2,
+      "n_settled": 0,
+      "avg_model_p": 0.0,
+      "realized_rate": 0.0,
+      "log_loss": 0.0,
+      "brier": 0.0,
+      "reliability": []
+    },
+    "S01": {
+      "n_scans": 2,
+      "n_settled": 0,
+      "avg_model_p": 0.0,
+      "realized_rate": 0.0,
+      "log_loss": 0.0,
+      "brier": 0.0,
+      "reliability": []
+    },
+    "S06": {
+      "n_scans": 6,
+      "n_settled": 0,
+      "avg_model_p": 0.0,
+      "realized_rate": 0.0,
+      "log_loss": 0.0,
+      "brier": 0.0,
+      "reliability": []
+    },
+    "S05": {
+      "n_scans": 4,
+      "n_settled": 0,
+      "avg_model_p": 0.0,
+      "realized_rate": 0.0,
+      "log_loss": 0.0,
+      "brier": 0.0,
+      "reliability": []
+    }
+  },
+  "per_sport": {
+    "mlb": {
+      "n_scans": 8,
+      "n_settled": 0,
+      "log_loss": 0.0,
+      "brier": 0.0,
+      "reliability": []
+    },
+    "nba": {
+      "n_scans": 2,
+      "n_settled": 0,
+      "log_loss": 0.0,
+      "brier": 0.0,
+      "reliability": []
+    },
+    "nfl": {
+      "n_scans": 4,
+      "n_settled": 0,
+      "log_loss": 0.0,
+      "brier": 0.0,
+      "reliability": []
+    }
+  }
+}

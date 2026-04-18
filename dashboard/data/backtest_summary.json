@@ -1,0 +1,86 @@
+[
+  {
+    "strategy_id": "S01",
+    "n_trades": 1867,
+    "hit_rate": 0.9234,
+    "avg_return_per_trade_pct": 0.266,
+    "total_pnl_cents": 182184,
+    "sharpe_annualized": 0.09,
+    "max_drawdown_pct": 49.3945,
+    "profit_factor": 1.033,
+    "ci95_mean_return_pct": [
+      -1.069,
+      1.599
+    ]
+  },
+  {
+    "strategy_id": "S02",
+    "n_trades": 300,
+    "hit_rate": 0.55,
+    "avg_return_per_trade_pct": 13.053,
+    "total_pnl_cents": 162484,
+    "sharpe_annualized": 1.176,
+    "max_drawdown_pct": 11.3078,
+    "profit_factor": 1.257,
+    "ci95_mean_return_pct": [
+      1.145,
+      25.932
+    ]
+  },
+  {
+    "strategy_id": "S03",
+    "n_trades": 120,
+    "hit_rate": 0.4917,
+    "avg_return_per_trade_pct": -9.662,
+    "total_pnl_cents": -210920,
+    "sharpe_annualized": -0.926,
+    "max_drawdown_pct": 15.5047,
+    "profit_factor": 0.824,
+    "ci95_mean_return_pct": [
+      -30.092,
+      9.966
+    ]
+  },
+  {
+    "strategy_id": "S04",
+    "n_trades": 80,
+    "hit_rate": 0.55,
+    "avg_return_per_trade_pct": 3.524,
+    "total_pnl_cents": 16644,
+    "sharpe_annualized": 0.343,
+    "max_drawdown_pct": 1.3063,
+    "profit_factor": 1.076,
+    "ci95_mean_return_pct": [
+      -14.968,
+      20.2
+    ]
+  },
+  {
+    "strategy_id": "S05",
+    "n_trades": 40,
+    "hit_rate": 0.825,
+    "avg_return_per_trade_pct": -4.063,
+    "total_pnl_cents": -14872,
+    "sharpe_annualized": -0.887,
+    "max_drawdown_pct": 3.2848,
+    "profit_factor": 0.784,
+    "ci95_mean_return_pct": [
+      -23.658,
+      7.28
+    ]
+  },
+  {
+    "strategy_id": "S06",
+    "n_trades": 1500,
+    "hit_rate": 0.5013,
+    "avg_return_per_trade_pct": -6.224,
+    "total_pnl_cents": -206213,
+    "sharpe_annualized": -0.571,
+    "max_drawdown_pct": 0.0,
+    "profit_factor": 0.901,
+    "ci95_mean_return_pct": [
+      -12.002,
+      -0.55
+    ]
+  }
+]

@@ -1,0 +1,43 @@
+:root {
+  --bg: #0e1116;
+  --fg: #e6e6e6;
+  --muted: #9aa3b2;
+  --accent: #5eead4;
+  --accent2: #fca5a5;
+  --border: #22272e;
+  --live: #34d399;
+  --shadow: #facc15;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+body { max-width: 1200px; margin: 0 auto; padding: 1rem; }
+header h1 { margin: 0 0 .2rem; font-size: 1.4rem; letter-spacing: .02em; }
+header .sub { color: var(--muted); margin: 0 0 1rem; font-size: .85rem; }
+header a { color: var(--accent); }
+nav.tabs { display: flex; gap: .5rem; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+.tab-btn { background: none; color: var(--fg); border: 1px solid transparent; padding: .45rem .8rem; cursor: pointer; font-family: inherit; font-size: .9rem; border-radius: .35rem .35rem 0 0; }
+.tab-btn:hover { background: #171c24; }
+.tab-btn.active { border-color: var(--border); border-bottom-color: var(--bg); color: var(--accent); position: relative; top: 1px; }
+main { padding-top: 1rem; }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+h2 { font-size: 1.05rem; margin-top: 0; }
+h3 { font-size: .9rem; color: var(--accent); margin-top: 1.2rem; }
+.hint { color: var(--muted); font-size: .8rem; }
+.legend { color: var(--muted); font-size: .8rem; margin-bottom: .8rem; }
+.chip { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: .72rem; margin-right: .3rem; color: #111; font-weight: 600; }
+.chip.live { background: var(--live); }
+.chip.shadow { background: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: .82rem; margin-top: .5rem; }
+th, td { padding: .3rem .45rem; border-bottom: 1px solid var(--border); text-align: left; white-space: nowrap; }
+th { color: var(--muted); font-weight: 500; }
+tr.shadow-row { opacity: 0.85; }
+td code { color: var(--accent2); }
+footer { margin-top: 2rem; color: var(--muted); font-size: .75rem; border-top: 1px solid var(--border); padding-top: .8rem; }
+footer a { color: var(--accent); }
+code { background: #131820; padding: 1px 4px; border-radius: 3px; }
+.ev-positive { color: var(--live); }
+.ev-marginal { color: var(--shadow); }
+.ev-negative { color: var(--accent2); }
+ul { padding-left: 1.2rem; }
+li { margin: .2rem 0; }

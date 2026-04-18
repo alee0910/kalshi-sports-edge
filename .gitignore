@@ -1,0 +1,41 @@
+# Secrets
+.env
+.env.local
+*.pem
+*.key
+secrets/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Data caches (kept locally, not committed)
+data/cache/*
+\!data/cache/.gitkeep
+data/historical/raw/*
+\!data/historical/raw/.gitkeep
+
+# Notebooks
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+build/
+dist/
+*.log
+
+# Dashboard build (generated from templates)
+dashboard/build/

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>kalshi-sports-edge · dashboard</title>
+  <meta name="description" content="Live model predictions, backtest results, and calibration reports for a research-only Kalshi sports-edge system." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <h1>kalshi-sports-edge</h1>
+  <p class="sub">Research-only system. <strong>Not investment advice.</strong> See <a href="#disclaimer">disclaimer</a>.</p>
+  <nav class="tabs" role="tablist">
+    <button data-tab="live" class="tab-btn active">Live candidates</button>
+    <button data-tab="backtest" class="tab-btn">Backtest</button>
+    <button data-tab="calibration" class="tab-btn">Calibration</button>
+    <button data-tab="about" class="tab-btn">About</button>
+  </nav>
+</header>
+
+<main>
+  <section id="tab-live" class="tab-panel active">
+    <h2>Live scanner candidates</h2>
+    <p id="live-meta">Loading…</p>
+    <div class="legend">
+      <span class="chip live">live</span> submit-eligible strategies.
+      <span class="chip shadow">shadow</span> log-only (below v1.1 calibration threshold).
+    </div>
+    <h3>Live</h3>
+    <table id="live-table">
+      <thead><tr>
+        <th>Strategy</th><th>Sport</th><th>Event</th><th>Side</th>
+        <th>Model&nbsp;P</th><th>Market&nbsp;Ask</th><th>Edge&nbsp;(pp)</th>
+        <th>Net&nbsp;¢&nbsp;after&nbsp;fee</th><th>Contracts</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+    <h3>Shadow</h3>
+    <table id="shadow-table">
+      <thead><tr>
+        <th>Strategy</th><th>Sport</th><th>Event</th><th>Side</th>
+        <th>Model&nbsp;P</th><th>Market&nbsp;Ask</th><th>Edge&nbsp;(pp)</th>
+        <th>Net&nbsp;¢&nbsp;after&nbsp;fee</th><th>Contracts</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+    <h3>Skipped markets</h3>
+    <p class="hint">Sports whose models aren't built yet (<code>not_yet_built = True</code>) are listed here. v1 only trades MLB, NBA, NFL.</p>
+    <table id="skipped-table">
+      <thead><tr><th>Ticker</th><th>Reason</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section id="tab-backtest" class="tab-panel">
+    <h2>Backtest summary (synthetic v1)</h2>
+    <p><strong>Caveat:</strong> Kalshi's public orderbook tape is thin pre-2024H2. These
+    results use literature-calibrated synthetic snapshots to check whether each
+    strategy's entry rule extracts edge after fees and one tick of slippage.
+    See <a href="https://github.com/alee0910/kalshi-sports-edge/blob/main/backtest/FINDINGS.md"><code>backtest/FINDINGS.md</code></a>.</p>
+    <table id="backtest-table">
+      <thead><tr>
+        <th>Strategy</th><th>#&nbsp;trades</th><th>Hit rate</th><th>Avg return / trade</th>
+        <th>Sharpe</th><th>Profit factor</th><th>Max DD</th><th>95% CI (mean)</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section id="tab-calibration" class="tab-panel">
+    <h2>Calibration reports</h2>
+    <p id="cal-meta">Loading…</p>
+    <h3>Model reliability (shipped sports)</h3>
+    <div id="cal-charts"></div>
+    <h3>Per-strategy scan-vs-settle calibration</h3>
+    <table id="cal-table">
+      <thead><tr>
+        <th>Strategy</th><th>Scans</th><th>Settled</th>
+        <th>Avg model P</th><th>Realized rate</th><th>Log loss</th><th>Brier</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+    <p class="hint">The calibration job runs daily at 08:00 UTC
+    (<code>.github/workflows/scanner.yml::calibration</code>) and refreshes
+    <code>dashboard/data/calibration.json</code> from the rolling 30-day
+    scan-and-settle window.</p>
+  </section>
+
+  <section id="tab-about" class="tab-panel">
+    <h2>About this system</h2>
+    <p>
+    This repository implements a research-only model-vs-market system for Kalshi
+    sports event contracts. It includes: (1) domain research for MLB, NBA, NFL
+    (v1) plus lit-review stubs for NHL, golf, tennis, soccer, CBB, MMA, NASCAR;
+    (2) six strategy specs grounded in academic literature on sports betting
+    market inefficiencies; (3) a fee-aware backtest engine; (4) a scanner
+    running on GitHub Actions every 20 minutes; (5) calibration reports updated
+    daily.
+    </p>
+    <h3>Repository layout</h3>
+    <ul>
+      <li><code>research/kalshi/</code> — microstructure, fees, client</li>
+      <li><code>research/domain/</code> — sport literature reviews</li>
+      <li><code>models/&lt;sport&gt;/</code> — pregame + in-game models</li>
+      <li><code>strategies/</code> — six v1 strategies + registry</li>
+      <li><code>backtest/</code> — engine + synthetic data + FINDINGS</li>
+      <li><code>scanner/</code> — live cron + candidate output</li>
+      <li><code>dashboard/</code> — this static site (GitHub Pages)</li>
+    </ul>
+    <h3 id="disclaimer">Disclaimer</h3>
+    <p>
+    This is <strong>not investment advice</strong>. Kalshi sports contracts are
+    event-based derivative products regulated (as of April 2026) by the CFTC,
+    with an active rulemaking docket and pending appeals of state-level
+    injunctions. Nothing on this site is an offer to transact in any
+    jurisdiction where doing so would be unlawful. Massachusetts residents
+    specifically: the state's preliminary injunction remains in effect as of the
+    most recent Third Circuit ruling; no orders are configured for MA
+    jurisdictions in this system. Past performance does not predict future
+    results.
+    </p>
+  </section>
+</main>
+
+<footer>
+  <p>Scanner version: <code id="scanner-version">–</code> · last scan <code id="last-scan">–</code></p>
+  <p>Source: <a href="https://github.com/alee0910/kalshi-sports-edge">github.com/alee0910/kalshi-sports-edge</a></p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
