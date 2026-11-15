@@ -35,6 +35,31 @@ export KALSHI_API_KEY="your-key-here"
 The scanner falls back to deterministic fixture data when `KALSHI_API_KEY`
 is absent or unreachable — useful for local dashboard development.
 
+## Strava API credentials
+
+1. Create an app at <https://www.strava.com/settings/api>. Set
+   **Authorization Callback Domain** to `localhost`.
+2. Export the app's credentials:
+
+   ```bash
+   export STRAVA_CLIENT_ID="12345"
+   export STRAVA_CLIENT_SECRET="..."
+   ```
+3. Run the one-time OAuth flow (opens a URL, you paste back the redirect):
+
+   ```bash
+   python -m integrations.strava auth
+   ```
+   Tokens are saved to `secrets/strava_token.json` (gitignored). The client
+   refreshes the 6-hour access token automatically and persists rotated
+   refresh tokens.
+4. Verify: `python -m integrations.strava whoami` /
+   `python -m integrations.strava activities -n 5`.
+
+For CI, add `STRAVA_CLIENT_ID`, `STRAVA_CLIENT_SECRET` and
+`STRAVA_REFRESH_TOKEN` as Actions secrets. Rate limits are 200 requests /
+15 min and 2,000 / day by default; the client backs off on 429s.
+
 ## GitHub Pages deployment
 
 1. Push the repo to GitHub (see below for the PAT push).
